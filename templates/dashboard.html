@@ -1,43 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Admin Dashboard</title>
 </head>
 <body>
-    <h1>Admin Dashboard</h1>
-    <a href="/logout">Logout</a>
+    <h1>Welcome to the Admin Dashboard</h1>
+    <h2>Total Voters Who Have Voted: {{ voted_count }}</h2>
 
-    <h2>Registered Candidates</h2>
+    <h3>Candidates:</h3>
     <ul>
         {% for candidate in candidates %}
-            <li>
-                {{ candidate.name }} - Votes: {{ candidate.votes }}
-                <a href="/delete_candidate/{{ candidate.id }}" style="color:red;">[Delete]</a>
-            </li>
+            <li>{{ candidate.name }} - Votes: {{ candidate.votes }}</li>
         {% endfor %}
     </ul>
 
-    <h2>Add Candidate</h2>
-    <form method="POST" action="/add_candidate">
-        Name: <input type="text" name="name" required>
-        <button type="submit">Add Candidate</button>
-    </form>
-
-    <h2>Registered Voters</h2>
+    <h3>Voters:</h3>
     <ul>
         {% for voter in voters %}
-            <li>
-                {{ voter.voter_id }} - Voted: {{ 'Yes' if voter.has_voted else 'No' }}
-                <a href="/delete_voter/{{ voter.id }}" style="color:red;">[Delete]</a>
-            </li>
+            <li>{{ voter.voter_id }} - Voted: {{ 'Yes' if voter.has_voted else 'No' }}</li>
         {% endfor %}
     </ul>
 
-    <h2>Add Voter</h2>
-    <form method="POST" action="/add_voter">
-        Voter ID: <input type="text" name="voter_id" required>
-        Password: <input type="password" name="password" required>
-        <button type="submit">Add Voter</button>
-    </form>
+    <a href="/logout">Logout</a>
 </body>
 </html>
