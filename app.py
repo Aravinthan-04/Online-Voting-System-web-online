@@ -20,8 +20,8 @@ class Candidate(db.Model):
     votes = db.Column(db.Integer, default=0)
 
 # Admin credentials
-ADMIN_USERNAME = "admin"
-ADMIN_PASSWORD = "admin123"
+ADMIN_USERNAME = "muthiah"
+ADMIN_PASSWORD = "mptc208"
 
 @app.route('/')
 def home():
