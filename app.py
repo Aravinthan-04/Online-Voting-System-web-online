@@ -56,7 +56,7 @@ def vote():
             voter.has_voted = True
             db.session.commit()
             session.pop('voter_id', None)
-            return "Vote Cast Successfully!"
+            return "Voted Successfully!"
 
     return render_template('vote.html', candidates=candidates)
 
